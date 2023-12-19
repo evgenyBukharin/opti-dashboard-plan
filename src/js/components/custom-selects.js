@@ -326,7 +326,7 @@ function checkIsAddedUsersEmpty() {
 
 const searchInput = document.getElementById("search");
 searchInput.addEventListener("input", () => {
-	let filteredUsers = usersList.filter(({ user }) => {
+	let filteredUsers = usersList.filter((user) => {
 		return user.name.includes(searchInput.value);
 	});
 	if (filteredUsers.length !== 0) {
