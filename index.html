@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="theme-color" content="#111111" />
+		<title>Opti-dashboard</title>
+		<!-- <link rel="preload" href="fonts/MontserratAlternates-Bold.woff2" as="font" type="font/woff2" crossorigin /> -->
+		<link rel="stylesheet" href="css/vendor.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<script defer src="js/main.js"></script>
+	</head>
+
+	<body class="page__body">
+		<div class="site-container">
+			<main class="main">
+				<section class="plan">
+					<div class="container_main plan__container">
+						<div class="plan__content">
+							<div class="plan__row plan__row-first">
+								<h3 class="title plan__title-h3">План продаж</h3>
+								<button class="btn-reset plan__settings">
+									<img
+										src="./img/gear.svg"
+										class="image plan__gear"
+										width="32"
+										height="32"
+										alt="Шестеренка"
+									/>
+								</button>
+							</div>
+							<div class="plan__row plan__row-second">
+								<h4 class="title plan__title-h4">
+									Общая цель <span class="plan__text-dash">&ndash;</span>
+									<span class="plan__text-value"> </span>
+									<span class="plan__text-currency">руб.</span>
+								</h4>
+								<div class="plan__column">
+									<h4 class="title plan__title-h4">
+										План на период <span class="plan__text-dash">&ndash;</span>
+									</h4>
+									<span class="plan__text-period"
+										>III квартал <span class="plan__text-period-year"></span
+									></span>
+								</div>
+							</div>
+							<div class="plan__graphs"></div>
+						</div>
+					</div>
+				</section>
+				<section class="settings">
+					<div class="settings__body">
+						<div class="settings__row-header">
+							<h4 class="settings__title">План продаж</h4>
+							<button class="btn-reset settings__button-close settings__button-close-main">
+								<img
+									loading="lazy"
+									src="./img/close.svg"
+									class="image settings__icon-close"
+									width="14"
+									height="14"
+									alt="Закрыть"
+								/>
+							</button>
+						</div>
+						<div class="settings__row-body">
+							<div class="settings__row">
+								<h5 class="settings__title-row">Выберите период на выполнение плана:</h5>
+								<div class="settings__content">
+									<div class="settings__select settings__select-dashed settings__select-default">
+										<div class="settings__container-value">
+											<div class="settings__value" data-value="month">Месяц</div>
+											<img
+												src="./img/bottom-arrow.svg"
+												class="image settings__icon-arrow"
+												width="25"
+												height="16"
+												alt="Стрелка вниз"
+											/>
+										</div>
+										<ul class="list-reset settings__list"></ul>
+									</div>
+									<div class="settings__select settings__select-detailed settings__select-default">
+										<div class="settings__container-value">
+											<div class="settings__value" data-value="Январь">Январь</div>
+											<img
+												src="./img/bottom-arrow.svg"
+												class="image settings__icon-arrow"
+												width="25"
+												height="16"
+												alt="Стрелка вниз"
+											/>
+										</div>
+										<ul class="list-reset settings__list"></ul>
+									</div>
+									<div class="settings__select setting__select-year settings__select-default">
+										<div class="settings__container-value">
+											<div class="settings__value" data-value="2023">2023</div>
+											<img
+												src="./img/bottom-arrow.svg"
+												class="image settings__icon-arrow"
+												width="25"
+												height="16"
+												alt="Стрелка вниз"
+											/>
+										</div>
+										<ul class="list-reset settings__list"></ul>
+									</div>
+								</div>
+							</div>
+							<div class="settings__row settings__row-textonly">
+								<h5 class="settings__title-row">Вид плана: Сумма продаж в тоннах</h5>
+							</div>
+							<div class="settings__row settings__row-users settings__row-users-empty"></div>
+							<div class="settings__row settings__row-textonly">
+								<h5 class="settings__title-row settings__title-dashed">добавить еще</h5>
+								<div class="settings__select-users">
+									<input
+										type="text"
+										id="search"
+										class="settings__input settings__input-search"
+										placeholder="Поиск по имени сотрудника....."
+									/>
+									<div class="settings__grid-users"></div>
+									<button class="btn-reset settings__button-close-users">
+										<img
+											loading="lazy"
+											src="./img/close.svg"
+											class="image settings__icon-close"
+											width="14"
+											height="14"
+											alt="Закрыть"
+										/>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>

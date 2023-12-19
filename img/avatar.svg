@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="512"
+     height="512"
+     x="0"
+     y="0"
+     viewBox="0 0 32 32"
+     style="enable-background:new 0 0 512 512"
+     xml:space="preserve"
+     class="">
+    <g>
+        <g data-name="Layer 2">
+            <circle cx="16"
+                    cy="10"
+                    r="8"
+                    fill="#c1c1c1"
+                    opacity="1"
+                    data-original="#13104c"
+                    class="" />
+            <path fill="#a9a9a9"
+                  d="M29.45 26.13a14.037 14.037 0 0 0-6.96-8.52 10.007 10.007 0 0 1-12.98 0 14.037 14.037 0 0 0-6.96 8.52 3.052 3.052 0 0 0 .5 2.68A2.923 2.923 0 0 0 5.43 30h21.14a2.923 2.923 0 0 0 2.38-1.19 3.052 3.052 0 0 0 .5-2.68z"
+                  opacity="1"
+                  data-original="#4c46c8"
+                  class="" />
+        </g>
+    </g>
+</svg>
