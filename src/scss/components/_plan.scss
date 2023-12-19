@@ -1,0 +1,357 @@
+.plan {
+	padding: 100px 0;
+	&__container {
+		&-graph {
+			padding: 7px 15px;
+			background: #e8f5fc;
+			display: flex;
+			align-items: center;
+			gap: 14px;
+		}
+		&-stats {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			column-gap: 27px;
+			padding-left: 16px;
+			padding-right: 16px;
+		}
+		&-dateline {
+			position: relative;
+		}
+		&-today {
+			position: absolute;
+			top: -73px;
+			background: var(--white-color);
+			padding: 5px 15px;
+			box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16);
+			border-radius: 37px;
+			transform: translateX(-47%);
+			&::before {
+				content: "";
+				position: absolute;
+				top: calc(100% + 6px);
+				left: 50%;
+				transform: translateX(-50%);
+				background: #b3e600;
+				border-radius: 0 0 6px 6px;
+				width: 3px;
+				height: 33px;
+			}
+			&::after {
+				content: "";
+				width: 10px;
+				height: 5px;
+				box-sizing: border-box;
+				border: 5px solid transparent;
+				border-top: 5px solid #fff;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				bottom: -9px;
+			}
+		}
+	}
+	&__content {
+		background: var(--grey-color);
+		border-radius: 10px;
+		padding-bottom: 14px;
+	}
+	&__row {
+		&-first {
+			padding: 14px 20px;
+			border-bottom: 1px solid var(--border-color);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&-second {
+			padding: 20px;
+			padding-top: 15px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&-graph {
+			padding-top: 10px;
+			width: 100%;
+			&-single {
+				& .plan {
+					&__container {
+						&-graph {
+							background: transparent;
+							padding: 46px 16px 46px 16px;
+						}
+					}
+					&__text {
+						&-all {
+							display: none;
+						}
+					}
+					&__title {
+						&-graph {
+							max-width: 383px;
+						}
+					}
+					&__track {
+						background: #33c2f4;
+					}
+					&__row {
+						&-graph {
+							padding-top: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	&__column {
+		display: flex;
+		align-items: center;
+	}
+	&__title {
+		&-h2 {
+			font-size: 24px;
+			line-height: normal;
+			color: rgba(51, 51, 51, 0.6);
+			font-weight: 400;
+			display: flex;
+			align-items: center;
+		}
+		&-h3 {
+			color: var(--black-color);
+			font-size: 18px;
+			font-weight: 400;
+			line-height: normal;
+		}
+		&-h4 {
+			color: var(--dark-grey-color);
+			font-size: 13px;
+			font-weight: 400;
+			line-height: normal;
+			display: flex;
+			align-items: center;
+		}
+		&-graph {
+			font-size: 15px;
+			line-height: normal;
+			font-weight: 500;
+			color: #2269b1;
+			max-width: 368px;
+			width: 100%;
+		}
+		&-stat {
+			margin-bottom: 20px;
+			font-size: 13px;
+			color: rgba(51, 51, 51, 0.84);
+			font-weight: 400;
+			line-height: normal;
+		}
+	}
+	&__text {
+		&-value {
+			font-size: 29px;
+			font-weight: 400;
+			line-height: normal;
+			color: var(--black-color);
+			margin-left: 6px;
+			&-stat {
+				white-space: nowrap;
+				font-size: 34px;
+				line-height: 44px;
+				color: #333;
+				margin-right: 8px;
+			}
+		}
+		&-currency {
+			font-size: 18px;
+			line-height: normal;
+			color: #878787;
+			margin-left: 4px;
+			margin-top: 6px;
+			&-stat {
+				margin-top: 4px;
+			}
+		}
+		&-dash {
+			margin-left: 6px;
+		}
+		&-period {
+			margin-left: 6px;
+			font-size: 16px;
+			line-height: 51px;
+			color: #525c69;
+		}
+		&-all {
+			font-size: 14px;
+			font-weight: 400;
+			color: #787c86;
+			text-align: right;
+			margin-top: 4px;
+		}
+		&-dateline {
+			position: absolute;
+			bottom: -23px;
+			font-size: 12px;
+			color: #525c69;
+			line-height: normal;
+			&-start {
+				left: 0;
+			}
+			&-end {
+				right: 0;
+			}
+		}
+		&-today {
+			font-size: 11px;
+			line-height: 11px;
+			margin-bottom: 2px;
+			text-transform: uppercase;
+			color: #525c69;
+			font-weight: 600;
+			text-align: center;
+			width: 100%;
+		}
+		&-date {
+			&-today {
+				font-size: 8px;
+				line-height: 8px;
+				opacity: 0.5;
+				text-align: center;
+				width: 100%;
+			}
+		}
+	}
+	&__graphs {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		padding: 0px 15px;
+	}
+	&__graph {
+		position: relative;
+		height: 28px;
+		width: 100%;
+		background: var(--white-color);
+		border: 2px solid rgba(130, 139, 149, 0.1);
+		border-radius: 2px;
+	}
+	&__track {
+		position: absolute;
+		top: -2px;
+		bottom: -2px;
+		left: 0;
+		background: #5dcfe0;
+		max-width: 100%;
+		border-radius: 2px;
+		&::after {
+			content: attr(data-width);
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(100%, -50%);
+			padding: 0 9px;
+			line-height: 26px;
+			color: #525c69;
+			font-size: 13px;
+		}
+		&-toleft {
+			&::after {
+				transform: translate(0, -50%);
+				color: white;
+			}
+		}
+	}
+	&__stat {
+		grid-column: 1 span;
+		border-left: 6px solid;
+		padding: 10px 20px 5px 20px;
+		border-radius: 3px;
+		&-done {
+			border-color: #6fd4f5;
+			background: #e8f5fc;
+		}
+		&-remaining {
+			border-color: #bcc3ca;
+			background: #eeefef;
+		}
+		&-persentage {
+			border-color: #b7d848;
+			background: #edf2d3;
+			& .plan__text-value-stat {
+				padding-left: 11px;
+			}
+		}
+	}
+	&__dateline {
+		position: relative;
+		width: 100%;
+		height: 11px;
+		margin-top: 6px;
+		display: flex;
+		justify-content: space-between;
+		padding: 0 2px;
+		& .plan {
+			&__line {
+				&:nth-child(3n + 1) {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	&__line {
+		width: 1px;
+		transform: translateX(-50%);
+		opacity: 0.2;
+		background: #828b95;
+		border-radius: 2px;
+	}
+	&__settings {
+		height: 32px;
+	}
+	&__gear {
+		&:hover {
+			animation: gearSpin 1.5s ease infinite;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.plan {
+		padding-bottom: 20px;
+		&__container {
+			&-stats {
+				padding: 0;
+				grid-template-columns: repeat(1, 1fr);
+				gap: 27px 0;
+			}
+		}
+		&__row {
+			&-second {
+				flex-direction: column;
+				gap: 12px;
+			}
+		}
+		&__text {
+			&-period {
+				line-height: normal;
+			}
+		}
+	}
+}
+
+@media (max-width: 445px) {
+	.plan {
+		&__graphs {
+			padding: 0;
+		}
+	}
+}
+
+@keyframes gearSpin {
+	0% {
+		rotate: 0deg;
+	}
+	100% {
+		rotate: 360deg;
+	}
+}
