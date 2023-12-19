@@ -330,8 +330,7 @@
 			}
 			const searchInput = document.getElementById("search");
 			searchInput.addEventListener("input", () => {
-				let filteredUsers = usersList.filter((_ref) => {
-					let { user } = _ref;
+				let filteredUsers = usersList.filter((user) => {
 					return user.name.includes(searchInput.value);
 				});
 				if (filteredUsers.length !== 0) {

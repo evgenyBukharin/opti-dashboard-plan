@@ -1026,6 +1026,19 @@ html {
 	padding-bottom: 0;
 	border: none;
 }
+.settings__row-footer {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
 .settings__content {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1095,6 +1108,15 @@ html {
 	background: var(--white-color);
 	border: 1px solid #c6cdd3;
 	cursor: pointer;
+}
+.settings__container-footer {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	gap: 12px;
 }
 .settings__value {
 	font-size: 13px;
@@ -1249,6 +1271,24 @@ html {
 	position: absolute;
 	top: 10px;
 	right: 10px;
+}
+.settings__button-save {
+	background: #bbed21;
+	color: #535c69;
+	line-height: 39px;
+	padding: 0 18px;
+	border-radius: 4px;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 700;
+}
+.settings__button-cancel {
+	color: #f1361b;
+	border-bottom: 1px dashed #ffb4a9;
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 17px;
+	font-weight: 500;
 }
 .settings__grid-users {
 	padding-top: 12px;
