@@ -361,13 +361,17 @@ usersSelectCloseButton.addEventListener("click", () => {
 });
 
 const settings = document.querySelector(".settings");
-const settingsCloseButton = document.querySelector(".settings__button-close-main");
+const settingsCloseButtonMain = document.querySelector(".settings__button-close-main");
+const settingsCloseButton = document.querySelector(".settings__button-cancel");
 const settingsOpenButton = document.querySelector(".plan__settings");
 
 function toggleSettings() {
 	settings.classList.toggle("settings-visible");
 }
 
+settingsCloseButtonMain.addEventListener("click", () => {
+	toggleSettings();
+});
 settingsCloseButton.addEventListener("click", () => {
 	toggleSettings();
 });
