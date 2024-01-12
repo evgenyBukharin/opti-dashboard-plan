@@ -281,6 +281,18 @@ html {
 	font-size: 16px;
 	line-height: 51px;
 	color: #525c69;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.plan__text-period-year {
+	margin-left: 5px;
 }
 .plan__text-all {
 	font-size: 14px;
@@ -419,6 +431,28 @@ html {
 .plan__gear:hover {
 	-webkit-animation: 1.5s infinite gearSpin;
 	animation: 1.5s infinite gearSpin;
+}
+.plan__button {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 4px;
+	margin-bottom: -2px;
+}
+.plan__button-prev {
+	margin-right: 4px;
+}
+.plan__button-prev img {
+	rotate: 180deg;
+}
+.plan__button-next {
+	margin-left: 4px;
 }
 @media (max-width: 480px) {
 	.plan {
@@ -1047,6 +1081,9 @@ html {
 }
 .settings__select {
 	position: relative;
+}
+.settings__select-dashed {
+	display: none;
 }
 .settings__select-dashed .settings__container-value {
 	background: 0 0;
