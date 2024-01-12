@@ -3911,7 +3911,7 @@
 	const searchInput = document.getElementById("search");
 	searchInput.addEventListener("input", () => {
 		let filteredUsers = usersList.filter((user) => {
-			return user.name.includes(searchInput.value);
+			return user.name.toLowerCase.includes(searchInput.value.toLowerCase());
 		});
 		if (filteredUsers.length !== 0) {
 			drawUsers(filteredUsers);
