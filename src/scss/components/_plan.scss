@@ -180,6 +180,12 @@
 			font-size: 16px;
 			line-height: 51px;
 			color: #525c69;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&-year {
+				margin-left: 5px;
+			}
 		}
 		&-all {
 			font-size: 14px;
@@ -311,6 +317,22 @@
 	&__gear {
 		&:hover {
 			animation: gearSpin 1.5s ease infinite;
+		}
+	}
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 4px;
+		margin-bottom: -2px;
+		&-prev {
+			img {
+				rotate: 180deg;
+			}
+			margin-right: 4px;
+		}
+		&-next {
+			margin-left: 4px;
 		}
 	}
 }

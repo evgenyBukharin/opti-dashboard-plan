@@ -1,5 +1,15 @@
 import axios from "axios";
 
+let url = new URL(window.location.href);
+if (url.searchParams.get("currentMonthId") == null) {
+	url.searchParams.set("currentMonthId", new Date().getMonth());
+	window.history.replaceState(null, null, url);
+}
+if (url.searchParams.get("currentYear") == null) {
+	url.searchParams.set("currentYear", new Date().getFullYear());
+	window.history.replaceState(null, null, url);
+}
+
 // набор данных
 const dashboardData = {
 	mainTarget: 3840,
@@ -94,6 +104,7 @@ const quartersReverse = {
 const mainTargetEl = document.querySelector(".plan__text-value");
 const graphsList = document.querySelector(".plan__graphs");
 const currYearEl = document.querySelector(".plan__text-period-year");
+const currMonthEl = document.querySelector(".plan__text-month");
 
 function formatNumber(value) {
 	return new String(value).replace(/(\d)(?=(\d{3})+$)/g, "$1 ");
@@ -133,18 +144,64 @@ class RowGraph {
 		return newGraph;
 	}
 }
+
 function init(dashboardData) {
 	mainTargetEl.innerHTML = formatNumber(dashboardData.mainTarget);
-	currYearEl.innerHTML = new Date().getFullYear();
+	currYearEl.innerHTML = url.searchParams.get("currentYear");
+	currMonthEl.innerHTML = singleMonths[url.searchParams.get("currentMonthId")];
 	dashboardData.sellingPlanData.forEach((obj) => {
 		graphsList.appendChild(new RowGraph(obj).getHtmlNode());
 	});
 }
 
-init(dashboardData);
+// next month
+const nextMonthBtn = document.querySelector(".plan__button-next");
+nextMonthBtn.addEventListener("click", () => {
+	let monthId = url.searchParams.get("currentMonthId");
+	if (singleMonths[+monthId + 1] !== undefined) {
+		url.searchParams.set("currentMonthId", +monthId + 1);
+	} else {
+		url.searchParams.set("currentMonthId", 0);
+		url.searchParams.set("currentYear", +url.searchParams.get("currentYear") + 1);
+	}
+	window.history.replaceState(null, null, url);
+	window.location.reload();
+});
 
+// prev month
+const prevMonthBtn = document.querySelector(".plan__button-prev");
+prevMonthBtn.addEventListener("click", () => {
+	let monthId = url.searchParams.get("currentMonthId");
+	if (singleMonths[+monthId - 1] !== undefined) {
+		url.searchParams.set("currentMonthId", +monthId - 1);
+	} else {
+		url.searchParams.set("currentMonthId", singleMonths.length - 1);
+		url.searchParams.set("currentYear", +url.searchParams.get("currentYear") - 1);
+	}
+	window.history.replaceState(null, null, url);
+	window.location.reload();
+});
+
+// получаем данные для плана продаж
+// dev
 // axios
-// 	.get("dashboardDataUrl")
+// 	.get("http://localhost:3000/newSellingPlanData")
+// 	.then((response) => {
+// 		init(response.data);
+// 	})
 // 	.catch((e) => {
 // 		console.log(e);
 // 	});
+
+// prod
+axios
+	.post("/getPlanUrl", {
+		monthId: url.searchParams.get("currentMonthId"),
+		year: url.searchParams.get("currentYear"),
+	})
+	.then((response) => {
+		init(response.data);
+	})
+	.catch((e) => {
+		console.log(e);
+	});

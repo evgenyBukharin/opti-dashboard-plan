@@ -105,6 +105,8 @@
 	&__select {
 		position: relative;
 		&-dashed {
+			// план только на месяц -> селект больше не нужен
+			display: none;
 			& .settings {
 				&__container {
 					&-value {

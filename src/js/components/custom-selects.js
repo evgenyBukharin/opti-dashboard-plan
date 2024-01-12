@@ -1,3 +1,4 @@
+import axios from "axios";
 const months = [
 	"Январь",
 	"Февраль",
@@ -22,48 +23,7 @@ const rootSelectItems = [
 	{ text: "Год", value: "year" },
 ];
 
-let usersList = [
-	{
-		userId: 0,
-		name: "Суханов Тимофей Робертович",
-		avatar: "./img/avatar.svg",
-	},
-	{
-		userId: 1,
-		name: "Третьяков Дмитрий Миронович",
-		avatar: "./img/avatar.svg",
-	},
-	{
-		userId: 2,
-		name: "Сизов Матвей Артёмович",
-		avatar: "./img/avatar.svg",
-	},
-	{
-		userId: 3,
-		name: "Казаков Марк Евгеньевич",
-		avatar: "./img/avatar.svg",
-	},
-	{
-		userId: 4,
-		name: "Афанасьева Мария Михайловна",
-		avatar: "./img/avatar.svg",
-	},
-	{
-		userId: 5,
-		name: "Гришин Михаил Степанович",
-		avatar: "./img/avatar.svg",
-	},
-	{
-		userId: 6,
-		name: "Кузнецов Семён Семёнович",
-		avatar: "./img/avatar.svg",
-	},
-	{
-		userId: 7,
-		name: "Егорова Марта Львовна",
-		avatar: "./img/avatar.svg",
-	},
-];
+let usersList = [];
 
 const rootSelect = document.querySelector(".settings__select-dashed");
 const detailedSelect = document.querySelector(".settings__select-detailed");
@@ -292,6 +252,7 @@ function addNewEmployee(user) {
 			/>
 		</button>
 	`;
+
 	// функционал кнопки удаления
 	let deleteUserBtn = div.querySelector(".settings__button-close-bx");
 	deleteUserBtn.addEventListener("click", function () {
@@ -313,8 +274,6 @@ function addNewEmployee(user) {
 		addedUsersList.classList.remove("settings__row-users-empty");
 	}
 }
-
-drawUsers(usersList);
 
 function checkIsAddedUsersEmpty() {
 	if (bannedUserIds.length == 0) {
@@ -377,4 +336,49 @@ settingsCloseButton.addEventListener("click", () => {
 });
 settingsOpenButton.addEventListener("click", () => {
 	toggleSettings();
+});
+
+// получение списка работников
+// dev
+// axios
+// 	.get("http://localhost:3000/employeeList")
+// 	.then((response) => {
+// 		usersList = response.data;
+// 		drawUsers(usersList);
+// 	})
+// 	.catch((e) => {
+// 		console.log(e);
+// 	});
+
+// prod
+axios
+	.get("/sales_plan/api/get_users_list.php")
+	.then((response) => {
+		usersList = response.data;
+		drawUsers(usersList);
+	})
+	.catch((e) => {
+		console.log(e);
+	});
+
+const submitPlanButton = document.querySelector(".settings__button-save");
+submitPlanButton.addEventListener("click", () => {
+	const planData = [];
+	let addedUsers = document.querySelectorAll(".settings__employee");
+	addedUsers.forEach((user) => {
+		planData.push({
+			userId: user.getAttribute("data-user-id"),
+			goal: user.querySelector(".settings__input").value,
+		});
+	});
+	// отправляем их данные
+	axios
+		.post("submitPlanUrl", planData)
+		.then(() => {
+			console.log("Наааааааайс");
+		})
+		.catch((e) => {
+			console.log("Вообще не нааааааааайс");
+			console.log(e);
+		});
 });
